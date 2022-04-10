@@ -4,11 +4,13 @@ const bot = new Telegraf(env.token)
 
 bot.start(ctx => {
     const from = ctx.update.message.from
+    const firstName = ctx.update.message.from.first_name
+    const lastName = ctx.update.message.from.last_name
 
     if (from.id != env.myId) {
-        ctx.reply(`Desculpa, ${from.first_name} ${from.last_name}, só falo com o Sr. LowC0ff...`)
+        ctx.reply(`Desculpa, ${firstName} ${lastName}, só falo com o Sr. LowC0ff...`)
     }
-    else ctx.reply(`Olá Sr. ${from.first_name} ${from.last_name} Como posso lhe ser útil?`)
+    else ctx.reply(`Olá Sr. ${firstName} ${lastName} Como posso lhe ser útil?`)
 
     console.log(from)
 })
