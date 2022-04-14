@@ -1,6 +1,7 @@
 const env = require('../.env')
 const Telegraf = require('telegraf')
 const bot = new Telegraf(env.token)
+const moment = require('moment')
 
 bot.start(ctx => {
     const from = ctx.update.message.from
@@ -13,5 +14,7 @@ bot.start(ctx => {
     }
     else ctx.reply(`Hello,${firstName} ${lastName}! Please select language`)
 })
+
+bot.hears(/github/i, ctx => ctx.reply('https://github.com/LowC0ff'))
 
 bot.startPolling()
