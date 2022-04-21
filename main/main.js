@@ -8,7 +8,9 @@ bot.start(ctx => {
     const firstName = ctx.update.message.from.first_name
     const lastName = ctx.update.message.from.last_name
 
-    if (from.id != env.idList) {
+    let idAcess = env.idList.filter(from.id)
+
+    if (from.id == idAcess) {
         ctx.reply('Access denied. Contact my master')
         console.log(from)
     }
